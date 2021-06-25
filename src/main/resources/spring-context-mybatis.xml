@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <!-- 配置 SqlSession -->
+    <bean id="sqlSessionFactory" class="com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <!-- 用于配置对象关系映射配置文件所在目录 -->
+        <property name="mapperLocations" value="classpath:/mapper/**/*.xml"/>
+        <property name="configLocation" value="classpath:/mybatis-config.xml"></property>
+    </bean>
+
+    <!-- 扫描 Mapper -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.dao" />
+    </bean>
+</beans>

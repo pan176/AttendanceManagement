@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.TbAttendanceMapper">
+    <resultMap id="BaseResultMap" type="com.domain.TbAttendance">
+        <!--@mbg.generated-->
+        <!--@Table tb_attendance-->
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="class_name" jdbcType="VARCHAR" property="className"/>
+        <result column="absent_date" jdbcType="TIMESTAMP" property="absentDate"/>
+        <result column="absent_class" jdbcType="VARCHAR" property="absentClass"/>
+        <result column="absent_type" jdbcType="VARCHAR" property="absentType"/>
+        <result column="student_name" jdbcType="VARCHAR" property="studentName"/>
+        <result column="student_id" jdbcType="INTEGER" property="studentId"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        id, class_name, absent_date, absent_class, absent_type, student_name, student_id
+    </sql>
+    <delete id="deleteMulti">
+
+
+    DELETE FROM tb_attendance
+    WHERE id IN
+
+
+        <foreach collection="array" open="(" close=")" separator="," item="id">
+            #{id}
+        </foreach>
+    </delete>
+
+    <select id="classInfo" resultType="java.lang.String">
+
+
+    SELECT DISTINCT class_name FROM tb_attendance
+
+
+    </select>
+
+    <select id="absentNum" resultType="java.lang.String" parameterType="java.lang.String">
+        <foreach collection="array" item="item" index="index" separator="union all">
+            SELECT COUNT(*) num FROM tb_attendance WHERE 1 = 1 AND class_name = #{item}
+        </foreach>
+    </select>
+
+    <select id="page" resultType="com.domain.TbAttendance" parameterType="java.util.Map">
+
+
+    SELECT
+
+
+        <include refid="Base_Column_List"/>
+
+
+    FROM
+    tb_attendance AS a
+
+
+        <where>
+            <if test="pageParams.className != null and pageParams.className != ''">
+                AND class_name LIKE CONCAT ('%', #{pageParams.className}, '%')
+
+
+            </if>
+            <if test="pageParams.studentName != null and pageParams.studentName != ''">
+
+
+        AND student_name LIKE CONCAT ('%', #{pageParams.studentName}, '%')
+            </if>
+        </where>
+
+
+    LIMIT #{start}, #{length}
+
+
+    </select>
+
+    <select id="count" resultType="java.lang.Integer">
+
+
+    SELECT COUNT(*) FROM tb_attendance AS a
+
+
+        <where>
+            <if test="className != null and className != ''">
+                AND class_name LIKE CONCAT ('%', #{className}, '%')
+
+
+            </if>
+            <if test="studentName != null and studentName != ''">
+
+
+        AND student_name LIKE CONCAT ('%', #{studentName}, '%')
+            </if>
+        </where>
+    </select>
+</mapper>

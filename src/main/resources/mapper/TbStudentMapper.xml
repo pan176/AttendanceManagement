@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.TbStudentMapper">
+  <resultMap id="BaseResultMap" type="com.domain.TbStudent">
+    <!--@mbg.generated-->
+    <!--@Table tb_student-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="sex" jdbcType="VARCHAR" property="sex" />
+    <result column="age" jdbcType="INTEGER" property="age" />
+    <result column="class_name" jdbcType="VARCHAR" property="className" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, `name`, sex, age, class_name
+  </sql>
+
+  <delete id="deleteMulti">
+    DELETE FROM tb_student
+    WHERE id IN
+    <foreach collection="array" open="(" close=")" separator="," item="id">
+      #{id}
+    </foreach>
+  </delete>
+
+  <select id="page" resultType="com.domain.TbStudent" parameterType="java.util.Map">
+    SELECT
+    <include refid="Base_Column_List" />
+    FROM
+    tb_student AS a
+    <where>
+      <if test="pageParams.name != null and pageParams.name != ''" >
+        AND name LIKE CONCAT ('%', #{pageParams.name}, '%')
+      </if>
+      <if test="pageParams.id != null and pageParams.id != ''" >
+        AND id LIKE CONCAT ('%', #{id}, '%')
+      </if>
+    </where>
+    LIMIT #{start}, #{length}
+  </select>
+
+  <select id="count" resultType="java.lang.Integer">
+    SELECT COUNT(*) FROM tb_student AS a
+    <where>
+      <if test="name != null and name != ''" >
+        AND name LIKE CONCAT ('%', #{name}, '%')
+      </if>
+      <if test="id != null and id != ''" >
+        AND id LIKE CONCAT ('%', #{id}, '%')
+      </if>
+    </where>
+  </select>
+</mapper>
