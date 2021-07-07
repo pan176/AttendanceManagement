@@ -58,7 +58,7 @@ public class StudentController {
     }
 
     /**
-     * 保存用户信息
+     * 保存用户信息（新增编辑二合一）
      *
      * @param student
      * @return

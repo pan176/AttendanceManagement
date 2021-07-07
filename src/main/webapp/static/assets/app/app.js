@@ -171,17 +171,6 @@ var App = function () {
             "ajax": {
                 "url": url
             },
-            "dom": "B",
-            "buttons": [
-                {
-                    extend: 'excel',
-                    text: '<i class="fa fa-upload"></i> 导出',
-                    className: 'btn btn-default btn-sm',
-                    exportOptions: {
-                        columns: ':visible',
-                    }
-                }
-            ],
             "columns": columns,
             "language": {
                 "sProcessing": "处理中...",
@@ -211,6 +200,17 @@ var App = function () {
                 handlerInitCheckbox();
                 handlerCheckboxAll();
             },
+            // "dom": "B",
+            "buttons": [
+                {
+                    extend: 'excel',
+                    text: '<i class="fa fa-upload"></i> 导出',
+                    className: 'btn btn-default btn-sm',
+                    exportOptions: {
+                        columns: ':visible',
+                    }
+                }
+            ],
         });
 
         return _dataTable;

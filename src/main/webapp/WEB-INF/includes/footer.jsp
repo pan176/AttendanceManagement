@@ -24,8 +24,8 @@
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
-<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<script src="/static/js/html5shiv.min.js"></script>
+<script src="/static/js/respond.min.js"></script>
 <![endif]-->
 
 <!-- jQuery 3 -->
@@ -55,13 +55,13 @@
 <script src="/static/assets/js/adminlte.min.js"></script>
 
 <!-- Import and Export Plugins -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.4.2/js/dataTables.buttons.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.4.2/js/buttons.flash.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.4.2/js/buttons.html5.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.4.2/js/buttons.print.js"></script>
+<script type="text/javascript" src="/static/js/jszip.js"></script>
+<script type="text/javascript" src="/static/js/vfs_fonts.js"></script>
+<script type="text/javascript" src="/static/js/pdfmake.js"></script>
+<script type="text/javascript" src="/static/js/dataTables.buttons.js"></script>
+<script type="text/javascript" src="/static/js/buttons.flash.js"></script>
+<script type="text/javascript" src="/static/js/buttons.html5.js"></script>
+<script type="text/javascript" src="/static/js/buttons.print.js"></script>
 
 <!-- App -->
 <%--<script src="/static/assets/app/validate.js"></script>--%>

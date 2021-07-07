@@ -37,10 +37,6 @@
                             <h3 class="box-title">图表统计</h3>
                         </div>
                         <div class="box-body">
-                            <a href="#" type="button" class="btn btn-lg btn-default"><i
-                                    class="glyphicon glyphicon-th-list"></i> 课程名</a>&nbsp;
-                            <a href="#" type="button" class="btn btn-lg btn-default"><i
-                                    class="glyphicon glyphicon-user"></i> 学生名</a>&nbsp;
                         </div>
                         <div class="box-body">
                             <div id="main" style="height: 650px;"></div>

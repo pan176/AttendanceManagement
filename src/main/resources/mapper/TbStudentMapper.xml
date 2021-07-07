@@ -33,7 +33,7 @@
         AND name LIKE CONCAT ('%', #{pageParams.name}, '%')
       </if>
       <if test="pageParams.id != null and pageParams.id != ''" >
-        AND id LIKE CONCAT ('%', #{id}, '%')
+        AND id LIKE CONCAT ('%', #{pageParams.id}, '%')
       </if>
     </where>
     LIMIT #{start}, #{length}

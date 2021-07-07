@@ -83,6 +83,7 @@
                         <div class="box-body" id="btn-group">
                             <a href="/attendance/form" type="button" class="btn btn-sm btn-default"><i
                                     class="fa fa-plus"></i> 新增</a>&nbsp;&nbsp;&nbsp;
+                            <button type="button" class="btn btn-sm btn-danger" onclick="App.deleteMulti('/attendance/delete')"><i class="fa fa-trash-o"></i> 删除</button>&nbsp;&nbsp;&nbsp;
                             <%--                            <a href="#" type="button" class="btn btn-sm btn-default"><i class="fa fa-download"></i> 导入</a>&nbsp;&nbsp;&nbsp;--%>
                             <%--                            <a href="#" type="button" class="btn btn-sm btn-default"><i class="fa fa-upload"></i> 导出</a>&nbsp;&nbsp;&nbsp;--%>
                             <button type="button" class="btn btn-sm btn-primary"
